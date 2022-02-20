@@ -20,6 +20,9 @@ start:
 	kubectl apply -f build/dev/mysql.yml
 	kubectl wait --namespace default --for=condition=ready pod --selector=app=mysql --timeout=90s
 
+	kubectl apply -f build/dev/redis.yml
+	kubectl wait --namespace default --for=condition=ready pod --selector=app=redis --timeout=90s
+
 	kubectl apply -f build/dev/infra.yml
 
 stop:

@@ -18,6 +18,7 @@ func DefaultHealthCheckProbes(httpEndpoint string) []HealthCheckProbe {
 			Port:     3306,
 			Password: "password",
 		}),
+		NewRedisHealthCheckProbe("redis-leader:6379", ""),
 	}
 	if httpEndpoint != "" {
 		probes = append(probes, NewHttpHealthCheckProbe(httpEndpoint))
